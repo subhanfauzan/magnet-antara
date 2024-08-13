@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magang Ngebut Enak dan Tenang</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap icons-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+        <a class="navbar-brand">MAGNET</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
+          <div class="d-flex">
+            <a
+              id="daftarMagangButton"
+              class="btn btn-outline-dark me-2"
+              href="#"
+            >
+              <i class=""></i>
+              Daftar Magang
+            </a>
+            <a class="btn btn-outline-dark" href="/logout">
+              <i class="bi bi-person me-1"></i>
+              Log Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content section-->
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="row">
+          <% for (var i = 0; i < data.length; i++) { %>
+          <div class="col">
+            <div class="container">
+              <div class="row">
+                <div class="pt-4">
+                  <div class="card profile-card text-center">
+                    <i class="bi bi-person-circle" style="font-size: 400%"></i>
+                    <div class="card-body">
+                      <% if (data[i] && data[i].nama_lengkap &&
+                      data[i].nama_lengkap.length > 0) { %>
+                      <h5 class="card-title"><%= data[i].nama_lengkap %></h5>
+                      <p class="card-text"><%= data[i].perguruan_tinggi %></p>
+                      <% } else { %>
+                      <p>Tolong lengkapi Data Pribadi</p>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="pt-3">
+                  <div class="card profile-card">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <h5 class="card-title">Data Pribadi</h5>
+                        <a
+                          href="/mhs/edit/<%= data[i].nik %>"
+                          class="bi bi-pencil-square"
+                          style="color: black"
+                        ></a>
+                      </div>
+                      <p class="card-text d-flex align-items-center">
+                        NIK:
+                        <input
+                          class="form-control ms-2"
+                          type="text"
+                          value="<%= data[i].nik %>"
+                          style="width: auto"
+                          disabled
+                        />
+                      </p>
+                      <p class="card-text d-flex align-items-center">
+                        Nama Lengkap:
+                        <input
+                          class="form-control ms-2"
+                          type="text"
+                          value="<%= data[i].nama_lengkap %>"
+                          style="width: auto"
+                          name="nama_lengkap"
+                          id="nama_lengkap"
+                          disabled
+                        />
+                      </p>
+                      <p class="card-text d-flex align-items-center">
+                        Perguruan Tinggi:
+                        <input
+                          class="form-control ms-2"
+                          type="text"
+                          value="<%= data[i].perguruan_tinggi %>"
+                          style="width: auto"
+                          name="perguruan_tinggi"
+                          id="perguruan_tinggi"
+                          disabled
+                        />
+                      </p>
+                      <p class="card-text d-flex align-items-center">
+                        Prodi:
+                        <input
+                          class="form-control ms-2"
+                          type="text"
+                          value="<%= data[i].prodi %>"
+                          style="width: auto"
+                          name="prodi"
+                          id="prodi"
+                          disabled
+                        />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+          <div class="mb-2 col">
+            <div class="container">
+              <div class="row">
+                <% if (berkas.length === 0) { %>
+                <div class="col-md-12 pt-4">
+                  <div class="card profile-card text-center">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <h5 class="card-title">Document</h5>
+                        <a
+                          href="/berkas/create"
+                          class="bi bi-pencil-square"
+                          style="color: black"
+                        ></a>
+                      </div>
+                      <p style="text-align: start">
+                        Lengkapi dokumen untuk mempermudah proses pendaftaran
+                        magang.
+                      </p>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100">KTP :</label>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100">CV :</label>
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100"
+                          >SK PRESTASI :</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% } else { %> <% for (var i = 0; i < berkas.length; i++) { %>
+                <div class="pt-4">
+                  <div class="card profile-card text-center">
+                    <div class="card-body">
+                      <div
+                        class="d-flex justify-content-between align-items-center"
+                      >
+                        <h5 class="card-title">Document</h5>
+                        <a
+                          href="/berkas/create"
+                          class="bi bi-pencil-square"
+                          style="color: black"
+                        ></a>
+                      </div>
+                      <p style="text-align: start">
+                        Lengkapi dokumen untuk mempermudah proses pendaftaran
+                        magang.
+                      </p>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100">NIK :</label>
+                        <img
+                          src="/uploads/<%= berkas[i].foto_ktp %>"
+                          class="img-thumbnail w-75"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100">CV :</label>
+                        <img
+                          src="/uploads/<%= berkas[i].cv %>"
+                          class="img-thumbnail w-75"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label text-start w-100"
+                          >SK PRESTASI :</label
+                        >
+                        <img
+                          src="/uploads/<%= berkas[i].sertifikat_prestasi %>"
+                          class="img-thumbnail w-75"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% } %> <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 w-50 pt-4">
+          <div class="card profile-card text-center">
+            <i class="bi bi-bank" style="font-size: 400%"></i>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"></p>
+              <p>Segera Mendaftar Di perusahaan pilihan anda</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document
+        .getElementById("daftarMagangButton")
+        .addEventListener("click", function (event) {
+          var namaLengkap = document.getElementById("nama_lengkap").value;
+          if (!namaLengkap) {
+            event.preventDefault();
+            alert("Tolong lengkapi Data Pribadi terlebih dahulu.");
+          } else {
+            window.location.href = "/list";
+          }
+        });
+    </script>
+  </body>
+</html>

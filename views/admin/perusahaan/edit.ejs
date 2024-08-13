@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/daterangepicker/daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
+    />
+    <script src="/assets/js/hyper-config.js"></script>
+    <link
+      href="/assets/css/app-saas.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-style"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%- include('../../partials/_head') %> <%-
+      include('../../partials/_sidebar-kantor') %>
+
+      <div class="content-page">
+        <div class="content">
+          <div class="container">
+            <form action="/perusahaan/update/<%- id %>" method="POST">
+              <div class="mb-2 pt-3">
+                <label for="nik" class="form-label">Akun:</label>
+                <select
+                  name="nik"
+                  id="nik"
+                  class="form-select"
+                  required
+                  disabled
+                >
+                  <% akun.forEach(akun => { %>
+                  <option value="<%= akun.nik %>"><%= akun.email %></option>
+                  <% }); %>
+                </select>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label" for="nama_perusahaan"
+                  >Nama perusahaan</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama_perusahaan"
+                  name="nama_perusahaan"
+                  placeholder="Masukkan Nama perusahaan"
+                  required
+                  value="<%= nama_perusahaan %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="kabupaten">kabupaten</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="kabupaten"
+                  name="kabupaten"
+                  placeholder="Masukkan kabupaten"
+                  required
+                  value="<%= kabupaten %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="alamat">alamat</label>
+                <input
+                  class="form-control"
+                  id="alamat"
+                  name="alamat"
+                  placeholder="Masukkan alamat"
+                  required
+                  value="<%= alamat %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="kriteria">kriteria</label>
+                <input
+                  class="form-control"
+                  id="kriteria_magang"
+                  name="kriteria_magang"
+                  placeholder="Masukkan kriteria"
+                  required
+                  value="<%= kriteria_magang %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="durasi">durasi</label>
+                <input
+                  class="form-control"
+                  id="durasi_magang"
+                  name="durasi_magang"
+                  placeholder="Masukkan durasi"
+                  required
+                  value="<%= durasi_magang %>"
+                />
+              </div>
+
+              <button class="btn btn-secondary" type="submit">Update</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/vendor.min.js"></script>
+    <script src="/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/assets/js/pages/demo.dashboard.js"></script>
+    <script src="/assets/js/app.min.js"></script>
+  </body>
+</html>

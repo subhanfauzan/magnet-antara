@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dashboard | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="A fully featured admin theme which can be used to build CRM, CMS, etc."
+      name="description"
+    />
+    <meta content="Coderthemes" name="author" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/daterangepicker/daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
+    />
+    <script src="/assets/js/hyper-config.js"></script>
+    <link
+      href="/assets/css/app-saas.min.css"
+      rel="stylesheet"
+      type="text/css"
+      id="app-style"
+    />
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%- include('../../partials/_head') %> <%-
+      include('../../partials/_sidebar') %>
+
+      <div class="content-page">
+        <div class="content">
+          <div class="container">
+            <form action="/perusahaan/store" method="POST">
+              <div class="mb-2 pt-3">
+                <label class="form-label" for="nik">Nik</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nik"
+                  name="nik"
+                  placeholder="NIK"
+                  required
+                  disabled
+                  value="<%= nik %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="nama_lengkap"
+                  >Nama lengkap</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nama_lengkap"
+                  name="nama_lengkap"
+                  placeholder="Nama Lengkap"
+                  required
+                  value="<%= nama_lengkap %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="perguruan_tinggi"
+                  >Perguruan Tinggi</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="perguruan_tinggi"
+                  name="perguruan_tinggi"
+                  placeholder="Nama Lengkap"
+                  required
+                  value="<%= perguruan_tinggi %>"
+                />
+              </div>
+              <div class="mb-2">
+                <label class="form-label" for="prodi">Nama Prodi</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="prodi"
+                  name="prodi"
+                  placeholder="Nama Lengkap"
+                  required
+                  value="<%= prodi %>"
+                />
+              </div>
+
+              <button class="btn btn-secondary" type="submit">Daftar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/vendor.min.js"></script>
+    <script src="/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/assets/js/pages/demo.dashboard.js"></script>
+    <script src="/assets/js/app.min.js"></script>
+  </body>
+</html>
